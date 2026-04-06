@@ -1,10 +1,25 @@
-<%- include('../layout') %>
+<% layout('layout') %>
+
 <h1>Login</h1>
-<% if (flash) { %><p style="color:red;"><%= flash.message %></p><% } %>
+
+<% if (flash) { %>
+  <p style="color:red;"><%= flash.message %></p>
+<% } %>
+
 <form method="POST" action="/auth/login">
   <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-  <label>Username: <input type="text" name="username"></label><br>
-  <label>Password: <input type="password" name="password"></label><br>
+
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+  </div>
+
   <button type="submit">Log In</button>
 </form>
+
 <p><a href="/auth/register">Create account</a></p>
