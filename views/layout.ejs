@@ -2,9 +2,9 @@
   layout.ejs — Base HTML layout template.
 
   This file is NOT rendered directly. It is used as a structural reference.
-  Individual page templates (index.ejs, etc.) include the shared partials:
+  Individual page templates (index.ejs, auth/register.ejs, etc.) include the shared partials:
 
-    <%- include('partials/head',   { title }) %>
+    <%- include('partials/head', { title }) %>
     <%- include('partials/header') %>
     ... page content ...
     <%- include('partials/footer') %>
@@ -15,17 +15,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%- include('partials/head', { title: title || 'Predictions' }) %>
 </head>
 <body>
-
   <%- include('partials/header') %>
 
   <main class="container">
-    <!-- Page-specific content goes here -->
+    <!-- Page-specific content will be injected here -->
+    <%- body %>
   </main>
 
   <%- include('partials/footer') %>
-
 </body>
 </html>
