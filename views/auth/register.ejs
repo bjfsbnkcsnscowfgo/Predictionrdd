@@ -9,22 +9,22 @@
 <form method="POST" action="/auth/register">
   <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-  <label>
-    Username:
-    <input type="text" name="username" required>
-  </label>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+  </div>
   <br>
 
-  <label>
-    Email:
-    <input type="email" name="email" required>
-  </label>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
   <br>
 
-  <label>
-    Password:
-    <input type="password" name="password" required>
-  </label>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+  </div>
   <br>
 
   <button type="submit">Register</button>
