@@ -20,7 +20,7 @@
     "express-session": "^1.18.0",
     "geoip-lite": "^1.4.10",
     "helmet": "^7.1.0",
-    "ua-parser-js": "^1.0.38"
+    "ua-parser-js": "^1.0.38",
     "express-ejs-layouts": "^2.5.1"
   },
   "devDependencies": {
