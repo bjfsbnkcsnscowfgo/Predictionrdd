@@ -1,18 +1,3 @@
-<!--
-  layout.ejs — Base HTML layout template.
-
-  This file is NOT rendered directly. It is used as a structural reference.
-  Individual page templates (index.ejs, auth/register.ejs, etc.) include the shared partials:
-
-    <%- include('partials/head', { title }) %>
-    <%- include('partials/header') %>
-    ... page content ...
-    <%- include('partials/footer') %>
-
-  This pattern keeps each page self-contained while sharing the
-  <head>, navigation, and footer across all pages.
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +9,6 @@
   <%- include('partials/header') %>
 
   <main class="container">
-    <!-- Page-specific content will be injected here -->
     <%- body %>
   </main>
 
