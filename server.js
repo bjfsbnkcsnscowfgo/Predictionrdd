@@ -155,9 +155,9 @@ app.get('/', (req, res) => {
 });
 
 // ─── Load external routes (from predictions-routes.zip) ──────────────────────
-const predictionsRoutes = require('./routes_drop/predictions');
-const authRoutes        = require('./routes_drop/auth');
-const profileRoutes     = require('./routes_drop/profile');
+const predictionsRoutes = require('./routes_drop/routes/predictions');
+const authRoutes        = require('./routes_drop/routes/auth');
+const profileRoutes     = require('./routes_drop/routes/profile');
 
 app.use('/predictions', predictionsRoutes);
 app.use('/auth', csrfSynchronisedProtection, authRoutes);
