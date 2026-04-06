@@ -171,10 +171,20 @@ app.use((req, res) => {
 // ─── Global Error Handler ────────────────────────────────────────────────────
 app.use((err, req, res, next) => {
   console.error('[Error]', err.stack || err.message);
+
   if (err.code === 'EBADCSRFTOKEN') {
-    return res.status(403).render('error', { title: '403 — Forbidden', code: 403, message: 'Invalid or missing CSRF token. Please refresh and try again.' });
+    return res.status(403).render('error', {
+      title: '403 — Forbidden',
+      code: 403,
+      message: 'Invalid or missing CSRF token. Please refresh and try again.'
+    });
   }
-  res.status(err.status || 500).render('error', { title: 'Server Error', code: err.status || 500, message: IS_PROD ? 'Something went wrong. Please try again later.' : err.message });
+
+  res.status(err.status || 500).render('error', {
+    title: 'Server Error',
+    code: err.status || 500,
+    message: err.stack || err.message
+  });
 });
 
 // ─── Start ───────────────────────────────────────────────────────────────────
