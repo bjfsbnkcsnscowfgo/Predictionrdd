@@ -1,0 +1,10 @@
+<%- include('../layout') %>
+<h1>Login</h1>
+<% if (flash) { %><p style="color:red;"><%= flash.message %></p><% } %>
+<form method="POST" action="/auth/login">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <label>Username: <input type="text" name="username"></label><br>
+  <label>Password: <input type="password" name="password"></label><br>
+  <button type="submit">Log In</button>
+</form>
+<p><a href="/auth/register">Create account</a></p>
