@@ -1,7 +1,4 @@
-<%#
-  partials/header.ejs — Site navigation bar.
-  `user` is injected into res.locals in server.js so it is always available here.
-%>
+<!-- partials/header.ejs — Site navigation bar -->
 <header class="site-header">
   <div class="container nav-inner">
 
@@ -19,7 +16,7 @@
         </a>
         <a href="/auth/logout" class="btn btn-sm">Log out</a>
       <% } else { %>
-        <a href="/auth/login"    class="btn btn-sm btn-outline">Log in</a>
+        <a href="/auth/login" class="btn btn-sm btn-outline">Log in</a>
         <a href="/auth/register" class="btn btn-sm">Sign up</a>
       <% } %>
     </nav>
