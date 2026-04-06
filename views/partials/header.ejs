@@ -1,0 +1,35 @@
+<%#
+  partials/header.ejs — Site navigation bar.
+  `user` is injected into res.locals in server.js so it is always available here.
+%>
+<header class="site-header">
+  <div class="container nav-inner">
+
+    <a class="nav-brand" href="/">🎯 Predictions</a>
+
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/predictions">Browse</a>
+
+      <% if (user) { %>
+        <a href="/predictions/create">+ New</a>
+        <a href="/profile">
+          <%= user.username %>
+          <span class="badge"><%= user.credits %> cr</span>
+        </a>
+        <a href="/auth/logout" class="btn btn-sm">Log out</a>
+      <% } else { %>
+        <a href="/auth/login"    class="btn btn-sm btn-outline">Log in</a>
+        <a href="/auth/register" class="btn btn-sm">Sign up</a>
+      <% } %>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Flash message (set via req.session.flash in route handlers) -->
+<% if (flash) { %>
+  <div class="flash flash--<%= flash.type || 'info' %>">
+    <%= flash.message %>
+  </div>
+<% } %>

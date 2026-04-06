@@ -1,0 +1,17 @@
+<%#
+  partials/head.ejs — HTML <head> partial.
+  Included at the top of every page template.
+  Variables expected:
+    title  {string}  — Page title shown in the browser tab
+%>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Predictions — a virtual-credit prediction platform." />
+
+<title><%= title || 'Predictions' %></title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+
+<!-- Main stylesheet -->
+<link rel="stylesheet" href="/css/style.css" />

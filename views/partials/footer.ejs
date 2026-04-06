@@ -1,0 +1,17 @@
+<%#
+  partials/footer.ejs — Site footer.
+  Included at the bottom of every page template.
+%>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <%= new Date().getFullYear() %> Predictions. All rights reserved.</p>
+    <nav class="footer-links">
+      <a href="/about">About</a>
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Main JS (deferred — loaded after DOM is ready) -->
+<script src="/js/main.js" defer></script>

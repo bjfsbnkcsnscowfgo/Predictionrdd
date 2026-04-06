@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head', { title }) %>
+</head>
+<body>
+
+<%- include('partials/header') %>
+
+<main class="container">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Make your prediction.</h1>
+    <p class="hero-sub">
+      Stake virtual credits on outcomes, rise up the leaderboard,
+      and prove you can see the future.
+    </p>
+    <% if (!user) { %>
+      <div class="hero-cta">
+        <a href="/auth/register" class="btn btn-lg">Get started — it's free</a>
+        <a href="/auth/login"    class="btn btn-lg btn-outline">Log in</a>
+      </div>
+    <% } else { %>
+      <div class="hero-cta">
+        <a href="/predictions/create" class="btn btn-lg">+ New Prediction</a>
+        <a href="/predictions"        class="btn btn-lg btn-outline">Browse all</a>
+      </div>
+    <% } %>
+  </section>
+
+  <!-- Active Predictions -->
+  <section class="section">
+    <h2 class="section-title">Open Predictions</h2>
+
+    <% if (predictions && predictions.length > 0) { %>
+      <div class="card-grid">
+        <% predictions.forEach(p => { %>
+          <a class="card" href="/predictions/<%= p.id %>">
+            <div class="card-body">
+              <h3 class="card-title"><%= p.title %></h3>
+              <div class="card-outcomes">
+                <span class="outcome outcome--a"><%= p.outcome_a %></span>
+                <span class="vs">vs</span>
+                <span class="outcome outcome--b"><%= p.outcome_b %></span>
+              </div>
+            </div>
+            <div class="card-meta">
+              <span>by <strong><%= p.author %></strong></span>
+              <span><%= p.bet_count %> bet<%= p.bet_count !== 1 ? 's' : '' %></span>
+              <span>Closes <%= new Date(p.closes_at).toLocaleDateString() %></span>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <div class="empty-state">
+        <p>No open predictions yet.</p>
+        <% if (user) { %>
+          <a href="/predictions/create" class="btn">Create the first one</a>
+        <% } else { %>
+          <a href="/auth/register" class="btn">Sign up to create one</a>
+        <% } %>
+      </div>
+    <% } %>
+
+    <div class="section-footer">
+      <a href="/predictions" class="btn btn-outline">View all predictions →</a>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section how-it-works">
+    <h2 class="section-title">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <h3>Sign up</h3>
+        <p>Create a free account and receive 100 starting credits.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <h3>Predict</h3>
+        <p>Browse open predictions or create your own. Stake your credits.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <h3>Win</h3>
+        <p>Correct predictions earn you credits. Climb the leaderboard.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include('partials/footer') %>
+
+</body>
+</html>
