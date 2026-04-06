@@ -80,7 +80,8 @@ CREATE INDEX IF NOT EXISTS idx_bets_user ON bets(user_id);
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
+const expressLayouts = require('express-ejs-layouts');
+app.use(expressLayouts);
 if (IS_PROD) app.set('trust proxy', 1);
 
 app.use(helmet({
