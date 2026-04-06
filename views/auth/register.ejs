@@ -1,0 +1,12 @@
+<%- include('../layout') %>
+<h1>Register</h1>
+<% if (flash) { %><p style="color:red;"><%= flash.message %></p><% } %>
+<form method="POST" action="/auth/register">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <label>Username: <input type="text" name="username"></label><br>
+  <label>Email: <input type="email" name="email"></label><br>
+  <label>Password: <input type="password" name="password"></label><br>
+  <label>Confirm Password: <input type="password" name="confirmPassword"></label><br>
+  <button type="submit">Register</button>
+</form>
+<p><a href="/auth/login">Already have an account? Log in</a></p>
